@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import gitInfo from '../../../assets/gitInfo.json';
+import gitInfo from '../../../assets/json/gitInfo.json';
 
 @Component({
   selector: 'app-list',

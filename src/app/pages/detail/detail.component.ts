@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import gitInfo from '../../../assets/gitInfo.json';
-
+import gitInfo from '../../../assets/json/gitInfo.json';
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
@@ -31,7 +30,6 @@ export class DetailComponent implements OnInit {
       )
       .subscribe((data) => {
         this.item = data;
-        console.log('issue', this.item);
         this.isReady = true;
       });
   }
