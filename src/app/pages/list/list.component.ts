@@ -14,6 +14,9 @@ export class ListComponent implements OnInit {
     'https://vrthumb.imagetoday.co.kr/2022/01/07/ti155t001020.jpg';
   private advBannerUrl: string = 'https://thingsflow.com/ko/home ';
 
+  organizationName: string = 'angular';
+  repositoryName: string = 'angular-cli';
+
   constructor(private http: HttpClient) {}
 
   async ngOnInit(): Promise<void> {
@@ -23,7 +26,7 @@ export class ListComponent implements OnInit {
   private async getGitHubIssueList(): Promise<any> {
     this.http
       .get<any>(
-        `https://api.github.com/repos/angular/angular-cli/issues?sort=comments`
+        `https://api.github.com/repos/${this.organizationName}/${this.repositoryName}/issues?sort=comments`
       )
       .subscribe((data) => {
         this.list = data;
