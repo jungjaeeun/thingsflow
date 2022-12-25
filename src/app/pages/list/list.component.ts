@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import gitInfo from '../../../assets/gitInfo.json';
 
 @Component({
   selector: 'app-list',
@@ -14,10 +16,10 @@ export class ListComponent implements OnInit {
     'https://vrthumb.imagetoday.co.kr/2022/01/07/ti155t001020.jpg';
   private advBannerUrl: string = 'https://thingsflow.com/ko/home ';
 
-  organizationName: string = 'angular';
-  repositoryName: string = 'angular-cli';
+  organizationName: string = gitInfo.organizationName;
+  repositoryName: string = gitInfo.repositoryName;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   async ngOnInit(): Promise<void> {
     this.getGitHubIssueList();
@@ -30,11 +32,23 @@ export class ListComponent implements OnInit {
       )
       .subscribe((data) => {
         this.list = data;
-        console.log('lists', this.list);
       });
   }
 
   public detailAdv(url: string): void {
     window.open(this.advBannerUrl);
+  }
+
+  public gotoIssueDetail(issueNumber: string): void | boolean {
+    this.router.navigate([`/detail`], {
+      queryParams: {
+        issueNumber,
+      },
+    });
+  }
+
+  // 광고위치
+  get advIdx(): number {
+    return 4;
   }
 }

@@ -4,20 +4,22 @@
 ></app-header>
 
 <div class="all_wrapper">
-  <div class="one_item" *ngFor="let item of list; let i = index">
+  <div *ngFor="let item of list; let i = index">
     <!-- 광고영역 -->
-    <div class="adv_wrapper" *ngIf="i == 4">
+    <div class="adv_wrapper" *ngIf="i == advIdx">
       <img [src]="advBannerImage" (click)="detailAdv(advBannerImage)" />
     </div>
 
-    <div class="title">
-      <b class="issue_number">#{{ item.number }}</b
-      ><span class="issue_title">{{ item.title }}</span>
-    </div>
-    <div class="content">
-      <span>작성자: {{ item.user.login }}, </span
-      ><span>작성일: {{ item.created_at | date : "yyyy년MM월dd일" }}</span
-      ><span class="comment_count">코멘트수: {{ item.comments }}</span>
+    <div class="one_item" (click)="gotoIssueDetail(item.number)">
+      <div class="title">
+        <b class="issue_number">#{{ item.number }}</b
+        ><span class="issue_title">{{ item.title }}</span>
+      </div>
+      <div class="content">
+        <span>작성자: {{ item.user.login }}, </span
+        ><span>작성일: {{ item.created_at | date : "yyyy년MM월dd일" }}</span
+        ><span class="comment_count">코멘트: {{ item.comments }}</span>
+      </div>
     </div>
   </div>
 </div>
