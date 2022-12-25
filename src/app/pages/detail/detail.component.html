@@ -4,5 +4,23 @@
 ></app-header>
 
 <div class="all_wrapper" *ngIf="isReady">
-  {{ issue | json }}
+  <div class="one_item">
+    <img [src]="item.user.avatar_url" />
+
+    <div class="issue_wrapper">
+      <div class="title">
+        <b class="issue_number">#{{ item.number }}</b
+        ><span class="issue_title">{{ item.title }}</span>
+      </div>
+      <div class="content">
+        <span>작성자: {{ item.user.login }}, </span
+        ><span>작성일: {{ item.created_at | date : "yyyy년MM월dd일" }}</span
+        ><span class="comment_count">코멘트: {{ item.comments }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="issue_body">
+    {{ item.body }}
+  </div>
 </div>

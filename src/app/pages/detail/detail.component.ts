@@ -12,7 +12,7 @@ export class DetailComponent implements OnInit {
   organizationName: string = gitInfo.organizationName;
   repositoryName: string = gitInfo.repositoryName;
 
-  issue: any;
+  item: any;
   isReady: boolean = false;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {
@@ -30,7 +30,8 @@ export class DetailComponent implements OnInit {
         `https://api.github.com/repos/${this.organizationName}/${this.repositoryName}/issues/${issueNumber}`
       )
       .subscribe((data) => {
-        this.issue = data;
+        this.item = data;
+        console.log('issue', this.item);
         this.isReady = true;
       });
   }

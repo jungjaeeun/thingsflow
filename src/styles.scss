@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+.one_item {
+  border-bottom: 1px solid #ddd;
+  padding: 20px 10px;
+
+  .title {
+    margin-bottom: 6px;
+
+    .issue_number {
+      font-size: 1.14rem;
+      margin-right: 10px;
+    }
+
+    .issue_title {
+      font-size: 1.1rem;
+    }
+  }
+
+  .comment_count {
+    float: right;
+    font-size: 0.8rem;
+  }
+}

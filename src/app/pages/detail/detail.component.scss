@@ -1,0 +1,20 @@
+.one_item {
+  .issue_wrapper {
+    display: inline-block;
+    margin-left: 16px;
+    width: calc(100% - 66px);
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    display: inline-block;
+  }
+}
+
+.issue_body {
+  font-size: 1.2rem;
+  white-space: pre-line;
+  margin: 20px 10px;
+}
